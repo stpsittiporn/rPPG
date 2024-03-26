@@ -46,8 +46,12 @@ if __name__ == "__main__":
 
     if int(path) == 0:
         cap = cv2.VideoCapture(int(path))
+        cap.set(CV_CAP_PROP_FRAME_WIDTH,320);
+        cap.set(CV_CAP_PROP_FRAME_HEIGHT,240);
     else:
         cap = cv2.VideoCapture(str("r" + path))
+        cap.set(CV_CAP_PROP_FRAME_WIDTH,320);
+        cap.set(CV_CAP_PROP_FRAME_HEIGHT,240);
 
     fu = Face_utilities()
     sp = Signal_processing()
@@ -66,7 +70,7 @@ if __name__ == "__main__":
     fps = 0  # for real time capture
     # R=[]
     # G=[]
-    # B=[]
+    # B=[]=
     # data for plotting
     buffer_data = []
     # filtered_data = []
@@ -85,7 +89,7 @@ if __name__ == "__main__":
     # p1 = win.addPlot(title="FFT")
     # p2 = win.addPlot(title ="Max30102")
     # p3 = win.addPlot(title = "remote_HR")
-    # win.resize(1200,470)
+    # win.resize(640,480)
     def write_read(x):
         serialInst.write(bytes(x, 'utf-8'))
 
